@@ -1,9 +1,11 @@
 from domain.sistema_folha import SistemaFolha
+
 sf = SistemaFolha()
 while True:
     op = int(input("Escolha uma opção\n"
                    "1- Cadastrar empregado\n"
-                   "2- Listar empregados\n"))
+                   "2- Listar empregados\n"
+                   "3- Rmover empregado\n"))
     if op == 1:
         nome = input('Informe o nome do empregdo\n')
         endereco = input('Informe o endereco\n')
@@ -25,4 +27,9 @@ while True:
         for i in sf.listarEmpregados():
             print(i)
     elif op == 3:
-        print('3')
+        for i in sf.listarEmpregados():
+            print(i)
+        numero = int(input('Escolha o número do empregado a ser removido\n'))
+        sf.removerFuncionario(numero)
+
+

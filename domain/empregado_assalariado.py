@@ -2,8 +2,8 @@ from domain.empregado_horista import Empregado
 
 class EmpregadoAssalariado(Empregado):
 
-    def __init__(self,salarioMensal,nome,endereco,taxaDeComicao):
-        super().__init__(nome,endereco)
+    def __init__(self,numero,salarioMensal,nome,endereco,taxaDeComicao):
+        super().__init__(numero,nome,endereco)
         self.__salarioMensal = salarioMensal
         self.__taxaDeComicao = taxaDeComicao
 
@@ -14,10 +14,10 @@ class EmpregadoAssalariado(Empregado):
 
     def __str__(self):
         if self.__heComicionado():
-            return 'Nome: {} | Endereço: {} | Tipo: Assalariado | Salário por mês: {}'\
-                .format(super().__str__(),super().getEndereco(),self.__salarioMensal)
-        return 'Nome: {} | Endereço: {} | Tipo: Comicionado | Salário por mês: {} | comição: {}' \
-            .format(super().__str__(), super().getEndereco(), self.__salarioMensal, self.__taxaDeComicao)
+            return '{} | Tipo: Comicionado | Salário por mês: {} | comição: {}' \
+            .format(super().__str__(), self.__salarioMensal, self.__taxaDeComicao)
+        return '{} | Tipo: Assalariado | Salário por mês: {}' \
+            .format(super().__str__(), self.__salarioMensal)
 
     def __heComicionado(self):
         if self.__taxaDeComicao != None:

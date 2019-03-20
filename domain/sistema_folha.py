@@ -4,11 +4,8 @@ from persistencia.banco import funcionarios
 
 class SistemaFolha:
 
-    def cadastrarEmpregadoHorista(self,nome,endereco,salarioPorHora,cartaoDePontos):
-        funcionarios.append(EmpregadoHorista(salarioPorHora,nome,endereco))
 
-    def cadastrarEmpregadoAssalariado(self, nome, endereco, salarioMensal,taxaDeComicao=None):
-        funcionarios.append(EmpregadoAssalariado(salarioMensal, nome, endereco,taxaDeComicao))
-
-    def listarEmpregados(self):
-        return funcionarios
+    def __geraId(self):
+        if funcionarios.__len__() > 0:
+            return funcionarios[funcionarios.__len__()-1].getNumero()+1
+        return 1
