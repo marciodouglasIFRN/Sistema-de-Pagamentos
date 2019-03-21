@@ -1,4 +1,4 @@
-from domain.empregado_horista import Empregado
+from model.domain.empregado_horista import Empregado
 
 class EmpregadoAssalariado(Empregado):
 
