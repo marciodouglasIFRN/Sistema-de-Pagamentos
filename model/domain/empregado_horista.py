@@ -1,3 +1,4 @@
+from model.domain.cartao_de_ponto import CartaoDePonto
 from model.domain.empregado import Empregado
 from datetime import datetime
 
@@ -14,9 +15,12 @@ class EmpregadoHorista(Empregado):
             .format(super().__str__(),self.__salarioPorHora)
 
     def registrarEntrada(self):
-        self.__entrada = datetime.now()
+        self.__entrada = datetime.now().hour
 
-    def registraSaida(self):
+
+    def registrarSaida(self):
         saida = datetime.now()
+        horasTrabalhadas = self.__entrada - saida.hour
+        self.__cartaoDePonto.append(CartaoDePonto(saida.day,horasTrabalhadas))
 
 
