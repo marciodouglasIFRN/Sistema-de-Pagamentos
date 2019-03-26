@@ -10,11 +10,12 @@ from view.menu_comicionado import MenuAssalariado
 
 while True:
     empregado = Altenticacao().altenticar(input('Para altenticar-se informe seu número de identificacao:\n'))
+    print(empregado)
     if isinstance(empregado, Admin):
         MenuAdmin(empregado).printMenu()
     elif isinstance(empregado,EmpregadoHorista):
         MenuHorista(empregado).printMenu()
-    elif isinstance(empregado,EmpregadoAssalariado) and empregado.heComicionado():
+    elif isinstance(empregado,EmpregadoAssalariado):
         MenuAssalariado(empregado).printMenu()
     else:
         print('Tente outra vez')

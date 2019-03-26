@@ -29,3 +29,6 @@ class EmpregadoAssalariado(Empregado):
         if self.__taxaDeComicao != None:
             return True
         return False
+
+    def lancarResultadoVenda(self,data,valor):
+        self.__vendas.append(ResultadoDaVenda(data,valor))

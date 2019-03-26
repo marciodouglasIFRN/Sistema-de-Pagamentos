@@ -5,6 +5,6 @@ class SistemaFolha:
 
     def geraId(self):
         if funcionarios.__len__() > 0:
-            return funcionarios[funcionarios.__len__()-1].getNumero()+1
+            return int(funcionarios[funcionarios.__len__()-1].getNumero()+1)
         return 1
 

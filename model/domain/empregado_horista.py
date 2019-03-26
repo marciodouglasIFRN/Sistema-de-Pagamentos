@@ -7,7 +7,7 @@ class EmpregadoHorista(Empregado):
     def __init__(self,numero,salarioPorHora,nome,endereco):
         super().__init__(numero, nome, endereco)
         self.__salarioPorHora = salarioPorHora
-        self.__cartaoDePonto = []
+        self.__cartoesDePonto = []
         self.__entrada = None
 
     def __str__(self):
@@ -20,7 +20,13 @@ class EmpregadoHorista(Empregado):
 
     def registrarSaida(self):
         saida = datetime.now()
-        horasTrabalhadas = self.__entrada - saida.hour
-        self.__cartaoDePonto.append(CartaoDePonto(saida.day,horasTrabalhadas))
+        horasTrabalhadas =  saida.hour - self.__entrada
+        self.__cartoesDePonto.append(CartaoDePonto(saida.day, horasTrabalhadas))
+
+    def getSalario(self):
+        horasTrabalhada = 0
+        for cartao in self.__cartoesDePonto:
+            horasTrabalhada += cartao.getHora()
+        return horasTrabalhada * self.__salarioPorHora
 
 

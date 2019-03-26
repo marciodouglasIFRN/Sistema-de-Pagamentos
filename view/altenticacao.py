@@ -7,8 +7,6 @@ class Altenticacao:
             for f in funcionarios:
                 if f.getNumero() == int(numero):
                     return f
-                else:
-                    return None
         elif numero == 'adm':
             return Admin()
         else:
