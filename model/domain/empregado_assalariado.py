@@ -22,9 +22,6 @@ class EmpregadoAssalariado(Empregado):
         return '{} | Tipo: Assalariado | Salário por mês: {}' \
             .format(super().__str__(), self.__salarioMensal)
 
-    def realizarVenda(self,data,valor):
-        self.__vendas.append(ResultadoDaVenda(datetime.now(),valor))
-
     def heComicionado(self):
         if self.__taxaDeComicao != None:
             return True

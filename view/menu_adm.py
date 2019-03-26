@@ -14,6 +14,8 @@ class MenuAdmin:
             elif op == 3:
                 self.__removerEmpregado()
             elif op == 4:
+                self.__lancarTaxaDeServico()
+            elif op == 5:
                 break
 
     def __menuPrincipalAdmin(self):
@@ -65,3 +67,8 @@ class MenuAdmin:
     def __imprimirEmpregados(self):
         for i in self.__admin.listarEmpregados():
             print(i)
+
+    def __lancarTaxaDeServico(self):
+        valor = int(input('Informe o valor da taxa serviço\n'))
+        id = int(input('Informe o id do membro\n'))
+        self.__admin.lancarTaxaDeServico(id,valor)
